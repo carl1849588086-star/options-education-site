@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>期权收益与保护指南</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">投资者教育</p>
+        <h1>期权收益与保护指南</h1>
+      </div>
+      <nav aria-label="页面章节">
+        <a href="#strategies">策略</a>
+        <a href="#builder">收益图</a>
+        <a href="#playbooks">实战用法</a>
+        <a href="#rules">风控规则</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="intro">
+          <h2 id="workspace-title">选择与你市场判断匹配的期权结构</h2>
+          <p>
+            备兑看涨、买入看涨、保护性看跌和现金担保看跌是四种不同工具。
+            关键问题不是哪一种“最好”，而是哪一种最匹配你的持仓、下跌承受能力、
+            时间周期和目标价。
+          </p>
+        </div>
+
+        <div class="strategy-tabs" role="tablist" aria-label="期权策略">
+          <button class="tab is-active" data-strategy="covered" type="button">备兑看涨</button>
+          <button class="tab" data-strategy="longcall" type="button">买入看涨</button>
+          <button class="tab" data-strategy="protective" type="button">保护性看跌</button>
+          <button class="tab" data-strategy="cashput" type="button">现金担保看跌</button>
+        </div>
+
+        <div class="strategy-layout" id="strategies">
+          <article class="strategy-panel" aria-live="polite">
+            <div class="strategy-heading">
+              <div>
+                <p class="label" id="strategy-label">用已持有股票产生现金流</p>
+                <h3 id="strategy-title">备兑看涨</h3>
+              </div>
+              <span class="risk-pill" id="strategy-risk">中等风险</span>
+            </div>
+            <p id="strategy-summary">
+              持有100股正股，同时卖出一张看涨期权。你先收到权利金，但股价高于行权价后的上涨收益会被限制。
+            </p>
+
+            <dl class="fact-grid">
+              <div>
+                <dt>适合市场</dt>
+                <dd id="best-market">中性到温和看涨</dd>
+              </div>
+              <div>
+                <dt>主要目标</dt>
+                <dd id="primary-goal">从已有正股中获得权利金收入</dd>
+              </div>
+              <div>
+                <dt>主要风险</dt>
+                <dd id="main-risk">正股下跌幅度超过收到的权利金</dd>
+              </div>
+              <div>
+                <dt>代价</dt>
+                <dd id="tradeoff">卖出看涨的行权价以上收益被封顶</dd>
+              </div>
+            </dl>
+          </article>
+
+          <aside class="visual-panel" aria-labelledby="chart-title">
+            <div class="chart-header">
+              <h3 id="chart-title">到期收益形状</h3>
+              <p id="chart-caption">备兑看涨可以缓冲小幅下跌，但不能完全保护正股暴跌。</p>
+            </div>
+            <canvas id="payoffChart" width="720" height="380" aria-label="收益图"></canvas>
+            <div class="legend">
+              <span><i class="line green"></i> 策略收益</span>
+              <span><i class="line gray"></i> 只持有正股</span>
+              <span><i class="line red"></i> 盈亏平衡</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="builder" id="builder" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <p class="eyebrow">互动示例</p>
+          <h2 id="builder-title">收益图计算器</h2>
+          <p>
+            调整示例输入，图表会展示权利金、行权价和保护结构如何改变到期结果。
+            下方情景表会比较股价下跌、持平、上涨时的利润/亏损。
+          </p>
+        </div>
+
+        <div class="controls">
+          <label>
+            当前股价
+            <input id="stockPrice" type="number" value="100" min="10" max="1000" step="1" />
+          </label>
+          <label>
+            行权价
+            <input id="strikePrice" type="number" value="110" min="10" max="1000" step="1" />
+          </label>
+          <label>
+            期权权利金
+            <input id="premium" type="number" value="3" min="0.1" max="200" step="0.1" />
+          </label>
+          <label>
+            合约数量
+            <input id="contracts" type="number" value="1" min="1" max="50" step="1" />
+          </label>
+          <label>
+            评估周期
+            <input id="horizonValue" type="number" value="30" min="1" max="3650" step="1" />
+          </label>
+          <label>
+            周期单位
+            <select id="horizonUnit">
+              <option value="days">天</option>
+              <option value="weeks">周</option>
+              <option value="months">月</option>
+              <option value="years">年</option>
+            </select>
+          </label>
+          <label>
+            下跌情景
+            <input id="downMove" type="number" value="-10" min="-90" max="0" step="1" />
+          </label>
+          <label>
+            上涨情景
+            <input id="upMove" type="number" value="10" min="0" max="300" step="1" />
+          </label>
+        </div>
+
+        <div class="metrics" aria-live="polite">
+          <div>
+            <span>盈亏平衡</span>
+            <strong id="breakeven">$97.00</strong>
+          </div>
+          <div>
+            <span>最大盈利</span>
+            <strong id="maxProfit">有限</strong>
+          </div>
+          <div>
+            <span>最大亏损</span>
+            <strong id="maxLoss">较大</strong>
+          </div>
+          <div>
+            <span>所需资金</span>
+            <strong id="capitalNeeded">$10,000</strong>
+          </div>
+          <div>
+            <span>评估天数</span>
+            <strong id="horizonDays">30天</strong>
+          </div>
+          <div>
+            <span>时间压力</span>
+            <strong id="timePressure">$10/天</strong>
+          </div>
+        </div>
+
+        <div class="scenario-panel" aria-live="polite">
+          <div class="scenario-heading">
+            <h3>三种股价情景下的结果</h3>
+            <p>按评估周期末的股价计算；未模拟中途隐含波动率和剩余时间价值。</p>
+          </div>
+          <div class="table-wrap scenario-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>情景</th>
+                  <th>期末股价</th>
+                  <th>策略利润/亏损</th>
+                  <th>策略收益率</th>
+                  <th>年化收益率</th>
+                  <th>只持有正股</th>
+                </tr>
+              </thead>
+              <tbody id="scenarioRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <details class="method-card" id="methodCard">
+          <summary>解释计算方法</summary>
+          <div class="method-content">
+            <p id="methodIntro">
+              计算器用“到期/评估日收益”来说明结构，不预测中途期权价格。
+            </p>
+            <div class="formula-grid">
+              <div>
+                <h4>核心公式</h4>
+                <p id="methodFormula">策略收益 = 正股收益 + 收到权利金 - 卖出看涨的内在价值。</p>
+              </div>
+              <div>
+                <h4>场景计算</h4>
+                <p>
+                  下跌/持平/上涨情景会先计算期末股价，再乘以每张合约100股和合约数量。
+                  收益率 = 策略利润/亏损 ÷ 所需资金。
+                </p>
+              </div>
+              <div>
+                <h4>时间压力</h4>
+                <p>
+                  时间压力 = 权利金总额 ÷ 评估天数。买方看到的是每天大致成本，卖方看到的是每天大致收入。
+                </p>
+              </div>
+              <div>
+                <h4>重要限制</h4>
+                <p>
+                  真实期权价格还会受剩余时间、隐含波动率、分红、利率、流动性和提前指派影响。
+                  这里的模型适合学习结构，不等于实时报价模型。
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section class="greeks" id="greeks" aria-labelledby="greeks-title">
+        <div class="section-heading">
+          <p class="eyebrow">期权指标</p>
+          <h2 id="greeks-title">读懂 Delta、Theta、Gamma、Vega、隐含波动率和 Rho</h2>
+          <p>
+            这些指标不是考试术语，而是交易时的仪表盘。它们告诉你期权对股价、时间、波动率和利率变化有多敏感。
+          </p>
+        </div>
+
+        <div class="greek-grid">
+          <article>
+            <h3>Delta</h3>
+            <p class="metric-line">股价变动敏感度</p>
+            <p>
+              股价上涨1元，期权理论上变化多少。Call 的 Delta 通常是 0 到 1，Put 的 Delta 通常是负数。
+            </p>
+            <p class="use-case">交易含义：Delta 越高，Call 越像正股；Delta 越低，越像高赔率彩票。</p>
+          </article>
+
+          <article>
+            <h3>Theta</h3>
+            <p class="metric-line">时间价值损耗</p>
+            <p>
+              时间过去一天，期权理论上损失多少价值。买方通常被 Theta 消耗，卖方通常收 Theta。
+            </p>
+            <p class="use-case">交易含义：短期期权如果股价不动，Theta 会非常快地吃掉权利金。</p>
+          </article>
+
+          <article>
+            <h3>Gamma</h3>
+            <p class="metric-line">Delta 的变化速度</p>
+            <p>
+              股价变动1元时，Delta 会变化多少。临近到期、接近平值的期权通常 Gamma 很高。
+            </p>
+            <p class="use-case">交易含义：Gamma 高代表期权反应很快，但方向错时亏损也会加速。</p>
+          </article>
+
+          <article>
+            <h3>Vega</h3>
+            <p class="metric-line">波动率敏感度</p>
+            <p>
+              隐含波动率上升1个百分点，期权理论上变化多少。长期期权通常 Vega 更高。
+            </p>
+            <p class="use-case">交易含义：财报前买期权容易买贵，财报后即使方向对也可能被 IV crush 影响。</p>
+          </article>
+
+          <article>
+            <h3>Imp. Vol / IV</h3>
+            <p class="metric-line">隐含波动率</p>
+            <p>
+              市场通过期权价格反推出的未来波动预期。IV 高代表期权贵，IV 低代表期权便宜。
+            </p>
+            <p class="use-case">交易含义：高 IV 更适合谨慎卖方策略；低 IV 更适合买方策略，但仍要有方向。</p>
+          </article>
+
+          <article>
+            <h3>Rho</h3>
+            <p class="metric-line">利率敏感度</p>
+            <p>
+              利率变化1个百分点时，期权理论上变化多少。短期期权通常 Rho 影响小，长期期权更明显。
+            </p>
+            <p class="use-case">交易含义：利率上升通常对 Call 略有利、对 Put 略不利，但多数短线交易里影响小于 Delta/Theta/IV。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="playbooks" id="playbooks" aria-labelledby="playbooks-title">
+        <div class="section-heading">
+          <p class="eyebrow">实战用法</p>
+          <h2 id="playbooks-title">投资者如何使用这些策略</h2>
+        </div>
+
+        <div class="playbook-grid">
+          <article>
+            <h3>保护正股，防止大幅下跌</h3>
+            <p>
+              当你持有的股票有明显下跌风险，并且希望设定一个明确的保护底线时，可以使用保护性看跌。
+              支付的权利金就是保险成本。
+            </p>
+            <ul>
+              <li>适用于财报、宏观事件前，或股价大涨之后。</li>
+              <li>适合保护你真正想长期持有的股票仓位。</li>
+              <li>隐含波动率已经很高时，不要为保护性看跌支付过高价格。</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>对愿意卖出的股票赚取权利金</h3>
+            <p>
+              当你持有100股正股，并且愿意在某个行权价卖出时，可以使用备兑看涨。
+              它提升现金流，但不是完整的下跌保护。
+            </p>
+            <ul>
+              <li>选择接近真实压力位或目标价的行权价。</li>
+              <li>如果你不想卖掉股票，不要在可能突破前卖出看涨。</li>
+              <li>权利金会降低成本，但不能消除正股下跌风险。</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>用有限风险获得看涨敞口</h3>
+            <p>
+              当你想获得上涨杠杆、但不想买入100股正股时，可以买入看涨期权。
+              如果你预期是稳定上涨而不是突然暴涨，优先选择更长到期时间和更高 Delta。
+            </p>
+            <ul>
+              <li>深度价外看涨便宜，是有原因的。</li>
+              <li>如果股价横盘，时间价值会持续损耗。</li>
+              <li>如果上涨逻辑不是马上发生，可以考虑45-120天到期的看涨。</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>等待更低买点时赚取权利金</h3>
+            <p>
+              当你想以更低价格买入某只股票，并且已经准备好现金时，可以卖出现金担保看跌。
+              权利金是你承担被指派买入风险的补偿。
+            </p>
+            <ul>
+              <li>只对你愿意真正持有的股票卖出看跌。</li>
+              <li>保留足够现金，以应对被指派买入。</li>
+              <li>不要为了高权利金去卖弱公司看跌。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="matrix" aria-labelledby="matrix-title">
+        <div class="section-heading">
+          <p class="eyebrow">策略矩阵</p>
+          <h2 id="matrix-title">每种策略适合什么时候使用</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>策略</th>
+                <th>市场判断</th>
+                <th>是否保护下跌？</th>
+                <th>上涨收益</th>
+                <th>常见错误</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>备兑看涨</td>
+                <td>中性到温和看涨</td>
+                <td>只有部分缓冲</td>
+                <td>封顶</td>
+                <td>对你不想卖出的股票卖出看涨</td>
+              </tr>
+              <tr>
+                <td>买入看涨</td>
+                <td>看涨，并且时间窗口明确</td>
+                <td>亏损限于权利金</td>
+                <td>较高</td>
+                <td>买太短期或太远价外的看涨</td>
+              </tr>
+              <tr>
+                <td>保护性看跌</td>
+                <td>长期看涨，短期担心下跌</td>
+                <td>是，行权价以下受保护</td>
+                <td>不封顶，但要扣除权利金</td>
+                <td>波动率已经飙升后才买保险</td>
+              </tr>
+              <tr>
+                <td>现金担保看跌</td>
+                <td>中性到看涨，愿意低位买入</td>
+                <td>不保护下跌，但买入价被折扣</td>
+                <td>若未被指派，盈利限于权利金</td>
+                <td>对你不想持有的股票卖出看跌</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="rules" id="rules" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <p class="eyebrow">风险纪律</p>
+          <h2 id="rules-title">交易前必须确认的规则</h2>
+        </div>
+        <ol class="rule-list">
+          <li><strong>先定义交易逻辑。</strong> 收权利金、做杠杆、买保险、等低价买入，需要不同结构。</li>
+          <li><strong>尊重到期日。</strong> 短期期权需要股价快速移动；恐慌时保护性看跌会变贵。</li>
+          <li><strong>关注隐含波动率。</strong> 高权利金有利于卖方，但会惩罚追高买方。</li>
+          <li><strong>控制仓位。</strong> 即使风险有限，也可能亏掉100%的权利金。</li>
+          <li><strong>提前规划指派。</strong> 备兑看涨和现金担保看跌都可能变成真实股票买卖。</li>
+        </ol>
+        <p class="disclaimer">
+          本站仅用于投资教育。期权有风险，并不适合所有投资者。示例未考虑佣金、税务、提前指派、
+          流动性和隐含波动率变化。
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
