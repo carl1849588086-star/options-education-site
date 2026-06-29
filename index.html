@@ -3,26 +3,136 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>期权收益与保护指南</title>
+    <title>投资教育与期权风控学院</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
       <div>
-        <p class="eyebrow">投资者教育</p>
-        <h1>期权收益与保护指南</h1>
+        <p class="eyebrow">Investor Education</p>
+        <h1>投资教育与期权风控学院</h1>
       </div>
       <nav aria-label="页面章节">
+        <a href="#learn">学习路径</a>
+        <a href="#themes">主题赛道</a>
         <a href="#strategies">策略</a>
         <a href="#builder">收益图</a>
-        <a href="#playbooks">实战用法</a>
+        <a href="#newsletter">晨报</a>
         <a href="#rules">风控规则</a>
       </nav>
     </header>
 
     <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">期权 · 成长股 · 风险管理</p>
+          <h2 id="hero-title">学习如何用期权保护资产，并用清晰框架参与 AI、航天、稀土与机器人机会</h2>
+          <p>
+            这里不是荐股群，而是一个帮助普通投资者建立交易框架的教育平台。
+            你会学习如何理解期权收益结构、识别高波动主题、控制仓位，并把市场新闻转化成可执行的风险计划。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#builder">打开收益图计算器</a>
+            <a class="button secondary" href="#newsletter">查看每日晨报样本</a>
+          </div>
+        </div>
+        <div class="hero-dashboard" aria-label="平台内容概览">
+          <div class="signal-card">
+            <span>核心工具</span>
+            <strong>期权收益图</strong>
+            <p>比较上涨、持平、下跌三种情景下的利润、亏损和时间压力。</p>
+          </div>
+          <div class="signal-grid">
+            <div>
+              <span>教育主题</span>
+              <strong>4</strong>
+              <p>Long Call、Covered Call、Protective Put、Cash Secured Put</p>
+            </div>
+            <div>
+              <span>市场赛道</span>
+              <strong>5</strong>
+              <p>AI、芯片、航天、稀土、机器人/自动驾驶</p>
+            </div>
+          </div>
+          <div class="market-strip">
+            <span>交易纪律</span>
+            <p>先定义风险，再寻找收益；先学习结构，再投入资金。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="learning" id="learn" aria-labelledby="learn-title">
+        <div class="section-heading">
+          <p class="eyebrow">学习路径</p>
+          <h2 id="learn-title">从免费工具到系统化投资框架</h2>
+          <p>
+            先用免费内容建立基础，再通过晨报、案例和工具把知识变成日常交易流程。
+          </p>
+        </div>
+        <div class="path-grid">
+          <article>
+            <span>01</span>
+            <h3>免费基础课</h3>
+            <p>理解期权四大基础结构、收益图、Delta/Theta/IV，以及为什么便宜期权经常更危险。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>互动计算器</h3>
+            <p>输入股价、行权价、权利金和时间周期，比较下跌、持平、上涨时的最终结果。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>主题研究</h3>
+            <p>跟踪 AI 应用、半导体、航天、关键矿物、机器人和自动驾驶的长期逻辑。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>每日交易员晨报</h3>
+            <p>把宏观、收益率、行业新闻和watchlist变化整理成可执行的观察清单。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="themes" id="themes" aria-labelledby="themes-title">
+        <div class="section-heading">
+          <p class="eyebrow">主题赛道</p>
+          <h2 id="themes-title">关注高成长板块，但用风险框架交易</h2>
+          <p>
+            主题投资的关键不是追热点，而是判断催化、估值、资金流和技术位置是否同时支持。
+          </p>
+        </div>
+        <div class="theme-grid">
+          <article>
+            <h3>AI 应用</h3>
+            <p>关注数据资产、广告推荐、企业自动化和AI工作流，例：Reddit、Pinterest、UiPath。</p>
+            <span>看点：收入转化与估值修复</span>
+          </article>
+          <article>
+            <h3>芯片与AI基础设施</h3>
+            <p>关注GPU、存储、网络、先进封装与设备，例：NVDA、MU、AVGO、AMD、AMAT。</p>
+            <span>看点：业绩确认与供需周期</span>
+          </article>
+          <article>
+            <h3>航天与卫星</h3>
+            <p>关注发射、卫星制造、地面通信、国防情报和SpaceX供应链。</p>
+            <span>看点：订单、发射节奏、现金流</span>
+          </article>
+          <article>
+            <h3>稀土与关键矿物</h3>
+            <p>关注国防供应链、稀土加工、锂、铀、铜和关键材料本土化。</p>
+            <span>看点：政策催化与资源价格</span>
+          </article>
+          <article>
+            <h3>机器人与自动驾驶</h3>
+            <p>关注传感器、自动化设备、仓储机器人、人形机器人和自动驾驶软件。</p>
+            <span>看点：规模化订单与单位经济模型</span>
+          </article>
+        </div>
+      </section>
+
       <section class="workspace" aria-labelledby="workspace-title">
         <div class="intro">
+          <p class="eyebrow">核心课程</p>
           <h2 id="workspace-title">选择与你市场判断匹配的期权结构</h2>
           <p>
             备兑看涨、买入看涨、保护性看跌和现金担保看跌是四种不同工具。
@@ -287,6 +397,74 @@
         </div>
       </section>
 
+      <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+        <div class="newsletter-copy">
+          <p class="eyebrow">每日交易员晨报</p>
+          <h2 id="newsletter-title">把全球事件翻译成你的持仓风险清单</h2>
+          <p>
+            晨报关注宏观、Fed、美债收益率、AI/芯片、航天、稀土、机器人和加拿大银行股等主题，
+            目标是帮助你判断“持有、增持、减仓、等待”的条件，而不是盲目追涨杀跌。
+          </p>
+          <form class="signup-form" id="signupForm">
+            <label>
+              邮箱
+              <input id="emailInput" type="email" placeholder="you@example.com" required />
+            </label>
+            <button class="button primary" type="submit">加入免费观察名单</button>
+          </form>
+          <p class="form-note" id="formNote">提交后会显示确认信息；正式邮件系统可接入 Substack、Beehiiv、ConvertKit 或自建后端。</p>
+        </div>
+        <div class="brief-card">
+          <h3>晨报样本结构</h3>
+          <ol>
+            <li>核心结论：今天市场是进攻、防守还是分化</li>
+            <li>宏观观察：PCE、Fed、美债收益率、美元</li>
+            <li>板块影响：AI、航天、稀土、机器人、银行</li>
+            <li>Watchlist：重点观察、可持有、需谨慎</li>
+            <li>操作纪律：加仓、减仓、等待确认的条件</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="monetization" aria-labelledby="monetization-title">
+        <div class="section-heading">
+          <p class="eyebrow">会员产品</p>
+          <h2 id="monetization-title">未来可以如何升级成付费产品</h2>
+          <p>
+            免费内容负责建立信任，付费内容负责节省时间、提供结构化案例和更完整的风险框架。
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <article>
+            <h3>免费版</h3>
+            <p class="price">$0</p>
+            <ul>
+              <li>基础期权教程</li>
+              <li>收益图计算器</li>
+              <li>每周市场观察</li>
+            </ul>
+          </article>
+          <article class="featured">
+            <h3>晨报会员</h3>
+            <p class="price">$9.99-$19.99/月</p>
+            <ul>
+              <li>每日交易员晨报</li>
+              <li>主题watchlist更新</li>
+              <li>期权策略案例复盘</li>
+            </ul>
+          </article>
+          <article>
+            <h3>课程与工具</h3>
+            <p class="price">$49-$199</p>
+            <ul>
+              <li>Covered Call实战课</li>
+              <li>高波动股票风控课</li>
+              <li>高级风险评分器</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section class="playbooks" id="playbooks" aria-labelledby="playbooks-title">
         <div class="section-heading">
           <p class="eyebrow">实战用法</p>
@@ -411,8 +589,9 @@
           <li><strong>提前规划指派。</strong> 备兑看涨和现金担保看跌都可能变成真实股票买卖。</li>
         </ol>
         <p class="disclaimer">
-          本站仅用于投资教育。期权有风险，并不适合所有投资者。示例未考虑佣金、税务、提前指派、
-          流动性和隐含波动率变化。
+          本站仅用于投资教育，不构成任何证券、期权、税务或法律建议。期权有风险，并不适合所有投资者。
+          示例未考虑佣金、税务、提前指派、流动性和隐含波动率变化。作者可能持有所提及资产；
+          过往表现不代表未来结果。
         </p>
       </section>
     </main>

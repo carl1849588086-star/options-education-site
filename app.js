@@ -77,6 +77,9 @@ const els = {
   timePressure: document.getElementById("timePressure"),
   scenarioRows: document.getElementById("scenarioRows"),
   methodFormula: document.getElementById("methodFormula"),
+  signupForm: document.getElementById("signupForm"),
+  emailInput: document.getElementById("emailInput"),
+  formNote: document.getElementById("formNote"),
 };
 
 let current = "covered";
@@ -404,5 +407,14 @@ els.tabs.forEach((tab) => {
   input.addEventListener("input", render);
   input.addEventListener("change", render);
 });
+
+if (els.signupForm) {
+  els.signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = els.emailInput.value.trim();
+    els.formNote.textContent = `${email} 已加入免费观察名单。正式上线时可以接入邮件平台自动发送晨报。`;
+    els.emailInput.value = "";
+  });
+}
 
 render();
