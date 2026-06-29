@@ -369,7 +369,7 @@ section {
 }
 
 .pricing-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-inline: 26px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -377,6 +377,9 @@ section {
 }
 
 .pricing-grid article {
+  position: relative;
+  display: grid;
+  align-content: start;
   min-height: 250px;
 }
 
@@ -385,11 +388,82 @@ section {
   box-shadow: inset 0 4px 0 var(--blue);
 }
 
+.popular-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 860;
+}
+
 .price {
   margin: 10px 0 12px;
   color: var(--navy);
   font-size: 24px;
   font-weight: 860;
+}
+
+.plan-note {
+  min-height: 62px;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.plan-button {
+  width: 100%;
+  margin-top: 18px;
+  align-self: end;
+}
+
+.payment-setup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.64fr);
+  gap: 16px;
+  margin: 18px 26px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+}
+
+.payment-setup h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.payment-setup p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  align-content: center;
+}
+
+.payment-methods span {
+  display: grid;
+  min-height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 820;
+}
+
+.payment-setup .form-note {
+  grid-column: 1 / -1;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .workspace {

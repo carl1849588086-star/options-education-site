@@ -18,6 +18,7 @@
         <a href="#strategies">策略</a>
         <a href="#builder">收益图</a>
         <a href="#newsletter">晨报</a>
+        <a href="#pricing">付款</a>
         <a href="#rules">风控规则</a>
       </nav>
     </header>
@@ -405,14 +406,24 @@
             晨报关注宏观、Fed、美债收益率、AI/芯片、航天、稀土、机器人和加拿大银行股等主题，
             目标是帮助你判断“持有、增持、减仓、等待”的条件，而不是盲目追涨杀跌。
           </p>
-          <form class="signup-form" id="signupForm">
+          <form
+            class="signup-form"
+            id="signupForm"
+            action="https://formsubmit.co/carl1849588086@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="新的投资教育网站订阅者" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://carl1849588086-star.github.io/options-education-site/?subscribed=1#newsletter" />
+            <input type="hidden" name="source" value="options-education-site" />
             <label>
               邮箱
-              <input id="emailInput" type="email" placeholder="you@example.com" required />
+              <input id="emailInput" name="email" type="email" placeholder="you@example.com" required />
             </label>
             <button class="button primary" type="submit">加入免费观察名单</button>
           </form>
-          <p class="form-note" id="formNote">提交后会显示确认信息；正式邮件系统可接入 Substack、Beehiiv、ConvertKit 或自建后端。</p>
+          <p class="form-note" id="formNote">提交后订阅信息会发送到站长邮箱。第一次使用可能需要站长在邮箱里确认激活。</p>
         </div>
         <div class="brief-card">
           <h3>晨报样本结构</h3>
@@ -426,42 +437,93 @@
         </div>
       </section>
 
-      <section class="monetization" aria-labelledby="monetization-title">
+      <section class="monetization" id="pricing" aria-labelledby="monetization-title">
         <div class="section-heading">
           <p class="eyebrow">会员产品</p>
-          <h2 id="monetization-title">未来可以如何升级成付费产品</h2>
+          <h2 id="monetization-title">选择适合你的学习与晨报计划</h2>
           <p>
-            免费内容负责建立信任，付费内容负责节省时间、提供结构化案例和更完整的风险框架。
+            免费内容帮助你建立基础，付费内容帮助你节省时间、跟踪市场，并通过案例学习期权和主题投资风控。
           </p>
         </div>
         <div class="pricing-grid">
           <article>
             <h3>免费版</h3>
             <p class="price">$0</p>
+            <p class="plan-note">适合刚开始学习期权和风险管理的投资者。</p>
             <ul>
               <li>基础期权教程</li>
               <li>收益图计算器</li>
               <li>每周市场观察</li>
             </ul>
+            <a class="button secondary plan-button" href="#newsletter">免费订阅</a>
           </article>
           <article class="featured">
-            <h3>晨报会员</h3>
-            <p class="price">$9.99-$19.99/月</p>
+            <p class="popular-label">推荐</p>
+            <h3>晨报月度会员</h3>
+            <p class="price">$19.99/月</p>
+            <p class="plan-note">适合想每天跟踪宏观、AI、航天、稀土和期权风险的人。</p>
             <ul>
               <li>每日交易员晨报</li>
               <li>主题watchlist更新</li>
               <li>期权策略案例复盘</li>
             </ul>
+            <a
+              class="button primary plan-button payment-link"
+              href="#payment-setup"
+              data-plan="晨报月度会员"
+              data-price="$19.99/月"
+            >月付开通</a>
+          </article>
+          <article>
+            <h3>晨报年度会员</h3>
+            <p class="price">$199/年</p>
+            <p class="plan-note">适合长期学习者，相比月付约节省两个月费用。</p>
+            <ul>
+              <li>包含月度会员全部内容</li>
+              <li>季度watchlist复盘</li>
+              <li>优先收到新工具更新</li>
+            </ul>
+            <a
+              class="button primary plan-button payment-link"
+              href="#payment-setup"
+              data-plan="晨报年度会员"
+              data-price="$199/年"
+            >年付开通</a>
           </article>
           <article>
             <h3>课程与工具</h3>
-            <p class="price">$49-$199</p>
+            <p class="price">$99</p>
+            <p class="plan-note">适合想系统学习 covered call、call spread 和高波动股票风控的人。</p>
             <ul>
               <li>Covered Call实战课</li>
               <li>高波动股票风控课</li>
               <li>高级风险评分器</li>
             </ul>
+            <a
+              class="button secondary plan-button payment-link"
+              href="#payment-setup"
+              data-plan="课程与工具"
+              data-price="$99"
+            >单次购买</a>
           </article>
+        </div>
+        <div class="payment-setup" id="payment-setup">
+          <div>
+            <h3>付款方式</h3>
+            <p>
+              这个静态网站可以接入 Stripe Payment Link、PayPal、Gumroad、Ko-fi、Lemon Squeezy，
+              也可以加入微信支付和支付宝二维码。你拿到真实付款链接或收款二维码后，把按钮链接替换进去即可正式收款。
+            </p>
+          </div>
+          <div class="payment-methods" aria-label="可接入付款方式">
+            <span>Credit Card</span>
+            <span>Stripe</span>
+            <span>PayPal</span>
+            <span>Gumroad</span>
+            <span>微信支付</span>
+            <span>支付宝</span>
+          </div>
+          <p class="form-note" id="paymentNote">付款按钮已放好；当前为链接占位模式。后续可以接入 Stripe/PayPal/Gumroad 链接，或跳转到微信/支付宝收款二维码页面。</p>
         </div>
       </section>
 

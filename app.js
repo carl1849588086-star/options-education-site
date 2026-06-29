@@ -77,9 +77,9 @@ const els = {
   timePressure: document.getElementById("timePressure"),
   scenarioRows: document.getElementById("scenarioRows"),
   methodFormula: document.getElementById("methodFormula"),
-  signupForm: document.getElementById("signupForm"),
-  emailInput: document.getElementById("emailInput"),
   formNote: document.getElementById("formNote"),
+  paymentNote: document.getElementById("paymentNote"),
+  paymentLinks: [...document.querySelectorAll(".payment-link")],
 };
 
 let current = "covered";
@@ -408,13 +408,20 @@ els.tabs.forEach((tab) => {
   input.addEventListener("change", render);
 });
 
-if (els.signupForm) {
-  els.signupForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const email = els.emailInput.value.trim();
-    els.formNote.textContent = `${email} 已加入免费观察名单。正式上线时可以接入邮件平台自动发送晨报。`;
-    els.emailInput.value = "";
-  });
+if (els.formNote && new URLSearchParams(window.location.search).get("subscribed") === "1") {
+  els.formNote.textContent = "订阅提交成功。请留意邮箱确认和后续晨报更新。";
 }
+
+els.paymentLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (link.getAttribute("href") === "#payment-setup") {
+      event.preventDefault();
+      const plan = link.dataset.plan;
+      const price = link.dataset.price;
+      els.paymentNote.textContent = `${plan}（${price}）的付款按钮已准备好。接入真实收款链接后，这里会直接跳转到付款页面。`;
+      document.getElementById("payment-setup").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+});
 
 render();
