@@ -409,7 +409,7 @@ els.tabs.forEach((tab) => {
 });
 
 if (els.formNote && new URLSearchParams(window.location.search).get("subscribed") === "1") {
-  els.formNote.textContent = "订阅提交成功。请留意邮箱确认和后续晨报更新。";
+  els.formNote.textContent = "持仓资料已提交成功。请留意邮箱确认；样本晨报会根据你提交的持仓/watchlist生成。";
 }
 
 els.paymentLinks.forEach((link) => {

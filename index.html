@@ -4,20 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>投资教育与期权风控学院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Investor Education</p>
-        <h1>投资教育与期权风控学院</h1>
+      <div class="brand">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/69cf2adb9df1f6505243f92f/dbf0bd78-1d33-4e8a-9e7e-2ac62753a73e/Auto+Trading+Partner+Logo.png"
+          alt="Auto Trading Partner"
+        />
+        <div>
+          <p class="eyebrow">Investor Education</p>
+          <h1>Auto Trading Partner</h1>
+        </div>
       </div>
       <nav aria-label="页面章节">
         <a href="#learn">学习路径</a>
         <a href="#themes">主题赛道</a>
         <a href="#strategies">策略</a>
         <a href="#builder">收益图</a>
-        <a href="#newsletter">晨报</a>
+        <a href="#newsletter">个性化晨报</a>
         <a href="#pricing">付款</a>
         <a href="#rules">风控规则</a>
       </nav>
@@ -26,15 +38,18 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">期权 · 成长股 · 风险管理</p>
-          <h2 id="hero-title">学习如何用期权保护资产，并用清晰框架参与 AI、航天、稀土与机器人机会</h2>
+          <div class="hero-brand">
+            <span>Auto Stock Trading Partner</span>
+          </div>
+          <p class="eyebrow">个性化晨报 · 期权 · 成长股 · 风险管理</p>
+          <h2 id="hero-title">把全球市场事件翻译成与你持仓相关的每日风险清单</h2>
           <p>
-            这里不是荐股群，而是一个帮助普通投资者建立交易框架的教育平台。
-            你会学习如何理解期权收益结构、识别高波动主题、控制仓位，并把市场新闻转化成可执行的风险计划。
+            这里不是荐股群，而是一个帮助投资者建立交易框架的教育平台。
+            客户提交自己的持仓、watchlist 和期权仓位后，可以收到围绕本人资产生成的每日交易员晨报。
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#builder">打开收益图计算器</a>
-            <a class="button secondary" href="#newsletter">查看每日晨报样本</a>
+            <a class="button primary" href="#newsletter">提交持仓生成样本</a>
+            <a class="button secondary" href="#builder">打开收益图计算器</a>
           </div>
         </div>
         <div class="hero-dashboard" aria-label="平台内容概览">
@@ -56,8 +71,8 @@
             </div>
           </div>
           <div class="market-strip">
-            <span>交易纪律</span>
-            <p>先定义风险，再寻找收益；先学习结构，再投入资金。</p>
+            <span>个性化逻辑</span>
+            <p>先读取客户持仓，再判断宏观事件、板块轮动和期权风险如何影响个人组合。</p>
           </div>
         </div>
       </section>
@@ -88,8 +103,8 @@
           </article>
           <article>
             <span>04</span>
-            <h3>每日交易员晨报</h3>
-            <p>把宏观、收益率、行业新闻和watchlist变化整理成可执行的观察清单。</p>
+            <h3>个性化每日晨报</h3>
+            <p>把客户自己的持仓和watchlist接入每日市场分析，生成更有价值的风险雷达。</p>
           </article>
         </div>
       </section>
@@ -400,39 +415,80 @@
 
       <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
         <div class="newsletter-copy">
-          <p class="eyebrow">每日交易员晨报</p>
-          <h2 id="newsletter-title">把全球事件翻译成你的持仓风险清单</h2>
+          <p class="eyebrow">Personalized Brief</p>
+          <h2 id="newsletter-title">提交你的持仓，获取个性化晨报样本</h2>
           <p>
-            晨报关注宏观、Fed、美债收益率、AI/芯片、航天、稀土、机器人和加拿大银行股等主题，
-            目标是帮助你判断“持有、增持、减仓、等待”的条件，而不是盲目追涨杀跌。
+            晨报会根据客户自己的股票、期权、风险偏好和关注市场生成，不再只是泛泛市场新闻。
+            目标是帮助客户判断哪些持仓需要盯、哪些风险正在升高、哪些板块可能影响组合。
           </p>
           <form
-            class="signup-form"
+            class="intake-form"
             id="signupForm"
             action="https://formsubmit.co/carl1849588086@gmail.com"
             method="POST"
           >
-            <input type="hidden" name="_subject" value="新的投资教育网站订阅者" />
+            <input type="hidden" name="_subject" value="新的个性化晨报客户申请" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="https://carl1849588086-star.github.io/options-education-site/?subscribed=1#newsletter" />
-            <input type="hidden" name="source" value="options-education-site" />
+            <input type="hidden" name="source" value="personalized-morning-brief-intake" />
             <label>
               邮箱
               <input id="emailInput" name="email" type="email" placeholder="you@example.com" required />
             </label>
-            <button class="button primary" type="submit">加入免费观察名单</button>
+            <label>
+              风险偏好
+              <select name="risk_tolerance" required>
+                <option value="">请选择</option>
+                <option value="保守">保守</option>
+                <option value="中等">中等</option>
+                <option value="激进">激进</option>
+                <option value="高风险">高风险</option>
+              </select>
+            </label>
+            <label>
+              主要市场
+              <select name="markets" required>
+                <option value="">请选择</option>
+                <option value="美股">美股</option>
+                <option value="美股 + 加股">美股 + 加股</option>
+                <option value="美股 + 加股 + 加密">美股 + 加股 + 加密</option>
+                <option value="全球市场">全球市场</option>
+              </select>
+            </label>
+            <label>
+              订阅兴趣
+              <select name="plan_interest" required>
+                <option value="">请选择</option>
+                <option value="免费样本晨报">免费样本晨报</option>
+                <option value="Pro 个性化晨报">Pro 个性化晨报</option>
+                <option value="Premium 期权风险提醒">Premium 期权风险提醒</option>
+              </select>
+            </label>
+            <label class="wide-field">
+              股票持仓 / Watchlist
+              <textarea name="holdings" rows="4" placeholder="例如：NVDA, RDDT, RKLB, MP, TD, RY。可注明持有/观察/仓位大小。" required></textarea>
+            </label>
+            <label class="wide-field">
+              期权仓位，可选
+              <textarea name="options_positions" rows="3" placeholder="例如：TD Aug21 125C 买入价 1.95；RY Jul17 210C 买入价 1.50"></textarea>
+            </label>
+            <label class="wide-field">
+              你最关心的问题，可选
+              <textarea name="main_questions" rows="3" placeholder="例如：哪些持仓需要减仓？哪些适合covered call？我想重点看AI、航天、稀土。"></textarea>
+            </label>
+            <button class="button primary" type="submit">提交持仓，申请样本晨报</button>
           </form>
-          <p class="form-note" id="formNote">提交后订阅信息会发送到站长邮箱。第一次使用可能需要站长在邮箱里确认激活。</p>
+          <p class="form-note" id="formNote">提交后，持仓资料会发送到站长邮箱，用于生成样本晨报或开通个性化订阅。第一次使用可能需要站长在邮箱里确认 FormSubmit 激活。</p>
         </div>
         <div class="brief-card">
-          <h3>晨报样本结构</h3>
+          <h3>客户会收到什么</h3>
           <ol>
-            <li>核心结论：今天市场是进攻、防守还是分化</li>
-            <li>宏观观察：PCE、Fed、美债收益率、美元</li>
-            <li>板块影响：AI、航天、稀土、机器人、银行</li>
-            <li>Watchlist：重点观察、可持有、需谨慎</li>
-            <li>操作纪律：加仓、减仓、等待确认的条件</li>
+            <li>只围绕客户自己的持仓和watchlist分析</li>
+            <li>宏观事件对组合的直接影响</li>
+            <li>AI、航天、稀土、机器人、银行等主题风险雷达</li>
+            <li>期权仓位的时间价值和风险提醒</li>
+            <li>继续观察、倾向增持、倾向减少的条件</li>
           </ol>
         </div>
       </section>
@@ -440,90 +496,80 @@
       <section class="monetization" id="pricing" aria-labelledby="monetization-title">
         <div class="section-heading">
           <p class="eyebrow">会员产品</p>
-          <h2 id="monetization-title">选择适合你的学习与晨报计划</h2>
+          <h2 id="monetization-title">选择你的个性化晨报计划</h2>
           <p>
-            免费内容帮助你建立基础，付费内容帮助你节省时间、跟踪市场，并通过案例学习期权和主题投资风控。
+            免费内容帮助客户体验样本晨报，付费计划则围绕客户自己的持仓、watchlist 和期权仓位生成每日风险雷达。
           </p>
         </div>
         <div class="pricing-grid">
           <article>
-            <h3>免费版</h3>
+            <h3>免费样本</h3>
             <p class="price">$0</p>
-            <p class="plan-note">适合刚开始学习期权和风险管理的投资者。</p>
+            <p class="plan-note">适合先提交持仓，体验一封个性化晨报样本。</p>
             <ul>
-              <li>基础期权教程</li>
-              <li>收益图计算器</li>
-              <li>每周市场观察</li>
+              <li>提交持仓/watchlist</li>
+              <li>收到一封样本晨报</li>
+              <li>使用收益图计算器</li>
             </ul>
-            <a class="button secondary plan-button" href="#newsletter">免费订阅</a>
+            <a class="button secondary plan-button" href="#newsletter">提交持仓</a>
           </article>
           <article class="featured">
             <p class="popular-label">推荐</p>
-            <h3>晨报月度会员</h3>
-            <p class="price">$19.99/月</p>
-            <p class="plan-note">适合想每天跟踪宏观、AI、航天、稀土和期权风险的人。</p>
+            <h3>Pro 个性化晨报</h3>
+            <p class="price">$29/月</p>
+            <p class="plan-note">适合想每天收到围绕自己持仓生成的市场影响分析。</p>
             <ul>
-              <li>每日交易员晨报</li>
-              <li>主题watchlist更新</li>
-              <li>期权策略案例复盘</li>
+              <li>工作日每日个性化晨报</li>
+              <li>持仓/观察池风险雷达</li>
+              <li>主题板块影响与关注清单</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
-              data-plan="晨报月度会员"
-              data-price="$19.99/月"
+              data-plan="Pro 个性化晨报"
+              data-price="$29/月"
             >月付开通</a>
           </article>
           <article>
-            <h3>晨报年度会员</h3>
-            <p class="price">$199/年</p>
-            <p class="plan-note">适合长期学习者，相比月付约节省两个月费用。</p>
+            <h3>Premium 期权风险提醒</h3>
+            <p class="price">$79/月</p>
+            <p class="plan-note">适合持有call、covered call、protective put等期权仓位的客户。</p>
             <ul>
-              <li>包含月度会员全部内容</li>
-              <li>季度watchlist复盘</li>
-              <li>优先收到新工具更新</li>
+              <li>包含Pro全部内容</li>
+              <li>期权时间价值与到期风险提醒</li>
+              <li>持仓保护与减仓触发条件</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
-              data-plan="晨报年度会员"
-              data-price="$199/年"
-            >年付开通</a>
-          </article>
-          <article>
-            <h3>课程与工具</h3>
-            <p class="price">$99</p>
-            <p class="plan-note">适合想系统学习 covered call、call spread 和高波动股票风控的人。</p>
-            <ul>
-              <li>Covered Call实战课</li>
-              <li>高波动股票风控课</li>
-              <li>高级风险评分器</li>
-            </ul>
-            <a
-              class="button secondary plan-button payment-link"
-              href="#payment-setup"
-              data-plan="课程与工具"
-              data-price="$99"
-            >单次购买</a>
+              data-plan="Premium 期权风险提醒"
+              data-price="$79/月"
+            >高级开通</a>
           </article>
         </div>
         <div class="payment-setup" id="payment-setup">
           <div>
             <h3>付款方式</h3>
             <p>
-              这个静态网站可以接入 Stripe Payment Link、PayPal、Gumroad、Ko-fi、Lemon Squeezy，
-              也可以加入微信支付和支付宝二维码。你拿到真实付款链接或收款二维码后，把按钮链接替换进去即可正式收款。
+              选择计划后，可以使用微信支付、支付宝或 PayPal 扫码付款。
+              付款完成后，请在提交持仓表单时填写邮箱和持仓信息，便于开通对应的个性化晨报服务。
             </p>
           </div>
-          <div class="payment-methods" aria-label="可接入付款方式">
-            <span>Credit Card</span>
-            <span>Stripe</span>
-            <span>PayPal</span>
-            <span>Gumroad</span>
-            <span>微信支付</span>
-            <span>支付宝</span>
+          <div class="payment-qr-grid" aria-label="付款二维码">
+            <article class="payment-qr-card">
+              <h4>微信支付</h4>
+              <img src="assets/wechat-pay.jpg" alt="微信支付二维码" />
+            </article>
+            <article class="payment-qr-card">
+              <h4>支付宝</h4>
+              <img src="assets/alipay.jpg" alt="支付宝支付二维码" />
+            </article>
+            <article class="payment-qr-card">
+              <h4>PayPal</h4>
+              <img src="assets/paypal-qr.png" alt="PayPal 收款二维码" />
+            </article>
           </div>
-          <p class="form-note" id="paymentNote">付款按钮已放好；当前为链接占位模式。后续可以接入 Stripe/PayPal/Gumroad 链接，或跳转到微信/支付宝收款二维码页面。</p>
+          <p class="form-note" id="paymentNote">请选择 Pro 或 Premium 计划后扫码付款。付款后请提交持仓表单，或发送付款截图和邮箱到 support@autotradingpartner.ca。</p>
         </div>
       </section>
 
@@ -657,6 +703,20 @@
         </p>
       </section>
     </main>
+
+    <footer class="site-footer" aria-label="网站联系信息">
+      <div>
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/69cf2adb9df1f6505243f92f/dbf0bd78-1d33-4e8a-9e7e-2ac62753a73e/Auto+Trading+Partner+Logo.png"
+          alt=""
+        />
+        <p>Auto Trading Partner</p>
+      </div>
+      <address>
+        Contact
+        <a href="mailto:support@autotradingpartner.ca">support@autotradingpartner.ca</a>
+      </address>
+    </footer>
 
     <script src="app.js"></script>
   </body>
