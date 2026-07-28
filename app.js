@@ -78,6 +78,7 @@ const els = {
   scenarioRows: document.getElementById("scenarioRows"),
   methodFormula: document.getElementById("methodFormula"),
   formNote: document.getElementById("formNote"),
+  signupForm: document.getElementById("signupForm"),
   paymentNote: document.getElementById("paymentNote"),
   paymentLinks: [...document.querySelectorAll(".payment-link")],
 };
@@ -410,6 +411,43 @@ els.tabs.forEach((tab) => {
 
 if (els.formNote && new URLSearchParams(window.location.search).get("subscribed") === "1") {
   els.formNote.textContent = "持仓资料已提交成功。请留意邮箱确认；样本晨报会根据你提交的持仓/watchlist生成。";
+}
+
+if (els.signupForm && els.formNote) {
+  els.signupForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = els.signupForm.querySelector('button[type="submit"]');
+    const originalLabel = submitButton.textContent;
+    const formData = new FormData(els.signupForm);
+
+    submitButton.disabled = true;
+    submitButton.textContent = "正在提交...";
+    els.formNote.textContent = "正在发送你的持仓资料，请不要关闭页面。";
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/carl1849588086@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (!response.ok || result.success === "false") {
+        throw new Error(result.message || "FormSubmit submission failed.");
+      }
+
+      els.signupForm.reset();
+      els.formNote.textContent = "提交成功。请留意邮箱确认；站长会根据你的持仓/watchlist生成样本晨报。";
+    } catch (error) {
+      els.formNote.textContent = "提交没有成功。请检查网络后重试，或直接把持仓资料发送到 carl1849588086@gmail.com。";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+    }
+  });
 }
 
 els.paymentLinks.forEach((link) => {
