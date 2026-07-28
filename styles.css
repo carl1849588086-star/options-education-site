@@ -546,9 +546,22 @@ section {
   font-size: 20px;
 }
 
+.payment-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .payment-setup p {
   margin: 0;
   color: var(--muted);
+}
+
+.payment-setup a {
+  color: var(--navy);
+  font-weight: 800;
 }
 
 .payment-qr-grid {
@@ -572,6 +585,11 @@ section {
   font-size: 16px;
 }
 
+.payment-qr-card p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 .payment-qr-card img {
   width: 100%;
   max-width: 240px;
@@ -580,6 +598,27 @@ section {
   object-fit: contain;
   border: 1px solid #eadcc8;
   background: #fff;
+}
+
+.activation-checklist {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.activation-checklist h4 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 16px;
+}
+
+.activation-checklist ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
 }
 
 .payment-setup .form-note {

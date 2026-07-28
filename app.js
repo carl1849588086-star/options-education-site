@@ -456,7 +456,7 @@ els.paymentLinks.forEach((link) => {
       event.preventDefault();
       const plan = link.dataset.plan;
       const price = link.dataset.price;
-      els.paymentNote.textContent = `${plan}（${price}）的付款按钮已准备好。接入真实收款链接后，这里会直接跳转到付款页面。`;
+      els.paymentNote.textContent = `你选择的是 ${plan}（${price}）。付款后请将付款截图、订阅版本和接收晨报邮箱发送至 support@autotradingpartner.ca，我们会在确认后开通服务。`;
       document.getElementById("payment-setup").scrollIntoView({ behavior: "smooth", block: "center" });
     }
   });
