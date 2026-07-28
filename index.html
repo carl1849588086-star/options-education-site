@@ -461,9 +461,9 @@
               订阅兴趣
               <select name="plan_interest" required>
                 <option value="">请选择</option>
-                <option value="免费样本晨报">免费样本晨报</option>
-                <option value="Pro 个性化晨报">Pro 个性化晨报</option>
-                <option value="Premium 期权风险提醒">Premium 期权风险提醒</option>
+                <option value="免费 7 天股票晨报试用">免费 7 天股票晨报试用</option>
+                <option value="Pro 股票持仓晨报">Pro 股票持仓晨报</option>
+                <option value="Premium 股票 + 期权风险晨报">Premium 股票 + 期权风险晨报</option>
               </select>
             </label>
             <label class="wide-field">
@@ -471,16 +471,16 @@
               <textarea name="holdings" rows="4" placeholder="例如：NVDA, RDDT, RKLB, MP, TD, RY。可注明持有/观察/仓位大小。" required></textarea>
             </label>
             <label class="wide-field">
-              期权仓位，可选
+              期权仓位，可选（Premium 客户会进行深度分析）
               <textarea name="options_positions" rows="3" placeholder="例如：TD Aug21 125C 买入价 1.95；RY Jul17 210C 买入价 1.50"></textarea>
             </label>
             <label class="wide-field">
               你最关心的问题，可选
               <textarea name="main_questions" rows="3" placeholder="例如：哪些持仓需要减仓？哪些适合covered call？我想重点看AI、航天、稀土。"></textarea>
             </label>
-            <button class="button primary" type="submit">提交持仓，申请样本晨报</button>
+            <button class="button primary" type="submit">提交持仓，申请 7 天免费试用</button>
           </form>
-          <p class="form-note" id="formNote">提交后，持仓资料会发送到站长邮箱，用于生成样本晨报或开通个性化订阅。第一次使用可能需要站长在邮箱里确认 FormSubmit 激活。</p>
+          <p class="form-note" id="formNote">提交后，持仓资料会发送到站长邮箱，用于生成 7 天免费股票晨报试用或开通个性化订阅。免费试用与 Pro 只覆盖股票相关分析；期权仓位深度分析仅限 Premium。</p>
         </div>
         <div class="brief-card">
           <h3>客户会收到什么</h3>
@@ -488,7 +488,7 @@
             <li>只围绕客户自己的持仓和watchlist分析</li>
             <li>宏观事件对组合的直接影响</li>
             <li>AI、航天、稀土、机器人、银行等主题风险雷达</li>
-            <li>期权仓位的时间价值和风险提醒</li>
+            <li>Premium 客户额外获得期权时间价值和风险提醒</li>
             <li>继续观察、倾向增持、倾向减少的条件</li>
           </ol>
         </div>
@@ -506,7 +506,7 @@
           <article>
             <span>美股 / 加股客户</span>
             <h3>北京时间早上 6:30 前更新</h3>
-            <p>晨报通常在北京时间早上 7:30-8:30 发送，重点覆盖昨夜美股收盘、盘后消息、收益率和期权风险。</p>
+            <p>晨报通常在北京时间早上 7:30-8:30 发送，重点覆盖昨夜美股收盘、盘后消息、收益率和股票持仓风险；Premium 会额外覆盖期权风险。</p>
           </article>
           <article>
             <span>中国 A 股客户</span>
@@ -531,54 +531,54 @@
           <p class="eyebrow">会员产品</p>
           <h2 id="monetization-title">选择你的个性化晨报计划</h2>
           <p>
-            免费内容帮助客户体验样本晨报，付费计划则围绕客户自己的持仓、watchlist 和期权仓位生成每日风险雷达。
+            免费内容帮助客户体验 7 天股票晨报。Pro 聚焦股票持仓与watchlist；Premium 在股票分析基础上增加期权仓位风险雷达。
           </p>
         </div>
         <div class="pricing-grid">
           <article>
-            <h3>免费样本</h3>
-            <p class="price">$0</p>
-            <p class="plan-note">适合先提交持仓，体验一封个性化晨报样本。</p>
+            <h3>免费 7 天试用</h3>
+            <p class="price">$0 <span>7 天</span></p>
+            <p class="plan-note">适合先体验每日股票持仓晨报；免费试用不包含期权深度分析。</p>
             <ul>
-              <li>提交持仓/watchlist</li>
-              <li>收到一封样本晨报</li>
-              <li>样本以一次性人工生成为准</li>
+              <li>连续 7 天股票持仓晨报</li>
+              <li>持仓/watchlist 与板块影响</li>
+              <li>不包含期权仓位深度分析</li>
               <li>使用收益图计算器</li>
             </ul>
-            <a class="button secondary plan-button" href="#newsletter">提交持仓</a>
+            <a class="button secondary plan-button" href="#newsletter">申请 7 天试用</a>
           </article>
           <article class="featured">
             <p class="popular-label">推荐</p>
-            <h3>Pro 个性化晨报</h3>
+            <h3>Pro 股票持仓晨报</h3>
             <p class="price">$29/月 <span>约 ¥203/月</span></p>
-            <p class="plan-note">适合想每天收到围绕自己持仓生成的市场影响分析。</p>
+            <p class="plan-note">适合只需要股票持仓、watchlist 和板块轮动分析的客户。</p>
             <ul>
-              <li>工作日每日个性化晨报</li>
-              <li>持仓/观察池风险雷达</li>
-              <li>主题板块影响与关注清单</li>
-              <li>截止时间前更新的持仓进入当日晨报</li>
+              <li>工作日每日股票持仓晨报</li>
+              <li>宏观事件与板块轮动映射</li>
+              <li>增持/持有/减仓观察条件</li>
+              <li>不包含期权仓位深度分析</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
-              data-plan="Pro 个性化晨报"
+              data-plan="Pro 股票持仓晨报"
               data-price="$29/月，约 ¥203/月"
             >月付开通</a>
           </article>
           <article>
-            <h3>Premium 期权风险提醒</h3>
+            <h3>Premium 股票 + 期权风险晨报</h3>
             <p class="price">$79/月 <span>约 ¥553/月</span></p>
-            <p class="plan-note">适合持有call、covered call、protective put等期权仓位的客户。</p>
+            <p class="plan-note">适合同时持有股票和 call、put、covered call、protective put 等期权仓位的客户。</p>
             <ul>
-              <li>包含Pro全部内容</li>
-              <li>期权时间价值与到期风险提醒</li>
-              <li>持仓保护与减仓触发条件</li>
+              <li>包含 Pro 全部股票分析</li>
+              <li>期权到期、Theta、IV、Delta 和行权价距离</li>
+              <li>covered call / protective put / long call / long put 风险提醒</li>
               <li>重大仓位变化可补发一次风险提醒</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
-              data-plan="Premium 期权风险提醒"
+              data-plan="Premium 股票 + 期权风险晨报"
               data-price="$79/月，约 ¥553/月"
             >高级开通</a>
           </article>
@@ -605,7 +605,7 @@
               <img src="assets/paypal-qr.png" alt="PayPal 收款二维码" />
             </article>
           </div>
-          <p class="form-note" id="paymentNote">请选择 Pro 或 Premium 计划后扫码付款。付款后请提交持仓表单，或发送付款截图和邮箱到 support@autotradingpartner.ca。</p>
+          <p class="form-note" id="paymentNote">请选择 Pro 或 Premium 计划后扫码付款。免费 7 天试用请直接提交持仓表单；期权仓位分析仅限 Premium。付款后请提交持仓表单，或发送付款截图和邮箱到 support@autotradingpartner.ca。</p>
         </div>
       </section>
 
