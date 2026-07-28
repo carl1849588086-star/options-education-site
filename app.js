@@ -426,7 +426,7 @@ if (els.signupForm && els.formNote) {
     els.formNote.textContent = "正在发送你的持仓资料，请不要关闭页面。";
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/carl1849588086@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/support@autotradingpartner.ca", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -442,7 +442,7 @@ if (els.signupForm && els.formNote) {
       els.signupForm.reset();
       els.formNote.textContent = "提交成功。请留意邮箱确认；站长会根据你的持仓/watchlist生成样本晨报。";
     } catch (error) {
-      els.formNote.textContent = "提交没有成功。请检查网络后重试，或直接把持仓资料发送到 carl1849588086@gmail.com。";
+      els.formNote.textContent = "提交没有成功。请检查网络后重试，或直接把持仓资料发送到 support@autotradingpartner.ca。";
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = originalLabel;
