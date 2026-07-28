@@ -284,12 +284,14 @@ section {
 .learning,
 .themes,
 .newsletter,
+.delivery-rules,
 .monetization {
   padding-bottom: 22px;
 }
 
 .path-grid,
 .theme-grid,
+.delivery-grid,
 .pricing-grid {
   display: grid;
   gap: 1px;
@@ -304,6 +306,7 @@ section {
 
 .path-grid article,
 .theme-grid article,
+.delivery-grid article,
 .pricing-grid article {
   padding: 22px;
   background: #fffaf2;
@@ -357,6 +360,42 @@ section {
   color: var(--navy);
   font-size: 13px;
   font-weight: 800;
+}
+
+.delivery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-inline: 26px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.delivery-grid article {
+  min-height: 190px;
+}
+
+.delivery-grid span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border: 1px solid #d7c7b2;
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 860;
+}
+
+.delivery-grid h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.delivery-grid p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .newsletter {
@@ -468,6 +507,15 @@ section {
   font-family: var(--serif);
   font-size: 24px;
   font-weight: 860;
+}
+
+.price span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .plan-note {
@@ -1130,6 +1178,7 @@ tbody tr:last-child td {
 
   .path-grid,
   .theme-grid,
+  .delivery-grid,
   .pricing-grid,
   .payment-qr-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1192,6 +1241,7 @@ tbody tr:last-child td {
   .brief-card,
   .path-grid article,
   .theme-grid article,
+  .delivery-grid article,
   .pricing-grid article {
     padding-inline: 16px;
   }
@@ -1223,6 +1273,7 @@ tbody tr:last-child td {
   .playbook-grid,
   .path-grid,
   .theme-grid,
+  .delivery-grid,
   .pricing-grid,
   .payment-qr-grid,
   .signal-grid {
@@ -1236,6 +1287,7 @@ tbody tr:last-child td {
   .greek-grid,
   .rule-list,
   .disclaimer,
+  .delivery-grid,
   .pricing-grid {
     margin-inline: 16px;
     padding-inline: 0;

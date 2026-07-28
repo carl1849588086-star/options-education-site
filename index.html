@@ -494,6 +494,33 @@
         </div>
       </section>
 
+      <section class="delivery-rules" id="delivery-rules" aria-labelledby="delivery-title">
+        <div class="section-heading">
+          <p class="eyebrow">Delivery Schedule</p>
+          <h2 id="delivery-title">持仓更新时间与晨报发送规则</h2>
+          <p>
+            为保证晨报质量，请在每日截止时间前提交最新持仓。截止后提交的更新，将进入下一交易日晨报。
+          </p>
+        </div>
+        <div class="delivery-grid">
+          <article>
+            <span>美股 / 加股客户</span>
+            <h3>北京时间早上 6:30 前更新</h3>
+            <p>晨报通常在北京时间早上 7:30-8:30 发送，重点覆盖昨夜美股收盘、盘后消息、收益率和期权风险。</p>
+          </article>
+          <article>
+            <span>中国 A 股客户</span>
+            <h3>北京时间晚上 9:00 前更新</h3>
+            <p>晨报通常在次日早上 7:00 发送，重点覆盖隔夜外围市场、政策消息、板块轮动和开盘前风险。</p>
+          </article>
+          <article>
+            <span>盘中大幅调仓</span>
+            <h3>按会员等级处理</h3>
+            <p>普通版会在下一交易日晨报中反映；Premium 客户可在重大仓位变化后获得一次额外风险提醒。</p>
+          </article>
+        </div>
+      </section>
+
       <section class="monetization" id="pricing" aria-labelledby="monetization-title">
         <div class="section-heading">
           <p class="eyebrow">会员产品</p>
@@ -510,6 +537,7 @@
             <ul>
               <li>提交持仓/watchlist</li>
               <li>收到一封样本晨报</li>
+              <li>样本以一次性人工生成为准</li>
               <li>使用收益图计算器</li>
             </ul>
             <a class="button secondary plan-button" href="#newsletter">提交持仓</a>
@@ -517,34 +545,36 @@
           <article class="featured">
             <p class="popular-label">推荐</p>
             <h3>Pro 个性化晨报</h3>
-            <p class="price">$29/月</p>
+            <p class="price">$29/月 <span>约 ¥203/月</span></p>
             <p class="plan-note">适合想每天收到围绕自己持仓生成的市场影响分析。</p>
             <ul>
               <li>工作日每日个性化晨报</li>
               <li>持仓/观察池风险雷达</li>
               <li>主题板块影响与关注清单</li>
+              <li>截止时间前更新的持仓进入当日晨报</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
               data-plan="Pro 个性化晨报"
-              data-price="$29/月"
+              data-price="$29/月，约 ¥203/月"
             >月付开通</a>
           </article>
           <article>
             <h3>Premium 期权风险提醒</h3>
-            <p class="price">$79/月</p>
+            <p class="price">$79/月 <span>约 ¥553/月</span></p>
             <p class="plan-note">适合持有call、covered call、protective put等期权仓位的客户。</p>
             <ul>
               <li>包含Pro全部内容</li>
               <li>期权时间价值与到期风险提醒</li>
               <li>持仓保护与减仓触发条件</li>
+              <li>重大仓位变化可补发一次风险提醒</li>
             </ul>
             <a
               class="button primary plan-button payment-link"
               href="#payment-setup"
               data-plan="Premium 期权风险提醒"
-              data-price="$79/月"
+              data-price="$79/月，约 ¥553/月"
             >高级开通</a>
           </article>
         </div>
@@ -553,7 +583,7 @@
             <h3>付款方式</h3>
             <p>
               选择计划后，可以使用微信支付、支付宝或 PayPal 扫码付款。
-              付款完成后，请在提交持仓表单时填写邮箱和持仓信息，便于开通对应的个性化晨报服务。
+              人民币价格按 1 美元约 7 元人民币参考换算。付款完成后，请在提交持仓表单时填写邮箱和持仓信息，便于开通对应的个性化晨报服务。
             </p>
           </div>
           <div class="payment-qr-grid" aria-label="付款二维码">
